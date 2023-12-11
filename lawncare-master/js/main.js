@@ -74,21 +74,33 @@
    $.Scrollax();
 
 	 $(document).ready(function() {
-    $(window).on('scroll', function() {
-        var scrollPosition = $(this).scrollTop();
+    // Smooth scrolling to anchor links
+    $('a[href^="#"]').on('click', function(event) {
+        var target = $(this.getAttribute('href'));
+        if (target.length) {
+            event.preventDefault();
+            $('html, body').stop().animate({
+                scrollTop: target.offset().top
+            }, 1000);
+        }
+    });
 
-        // Check each section's position
-        $('section').each(function() {
-            var currentId = $(this).attr('id');
-            var sectionOffset = $(this).offset().top - 100; // Adjust offset if needed
-
-            if (scrollPosition >= sectionOffset) {
-                $('.main-menu li').removeClass('current-list-item');
-                $('.main-menu li').find('a[href="#' + currentId + '"]').parent().addClass('current-list-item');
+    // Change active navigation item on scroll
+    $(window).scroll(function() {
+        var scrollPos = $(document).scrollTop();
+        $('.main-menu ul li a').each(function() {
+            var currLink = $(this);
+            var refElement = $(currLink.attr('href'));
+            if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                $('.main-menu ul li').removeClass('current-list-item');
+                currLink.parent().addClass('current-list-item');
+            } else {
+                currLink.parent().removeClass('current-list-item');
             }
         });
     });
 });
+
 
 
 	var carousel = function() {
