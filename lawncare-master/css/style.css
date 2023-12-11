@@ -5,6 +5,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 :root {
+  --primary: #348E38;
+  --secondary: #525368;
+  --light: #E8F5E9;
+  --dark: #0F4229;
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -12715,13 +12719,7 @@ table.order-details tbody td {
   width: 100%;
 }
 
-/********** Template CSS **********/
-:root {
-  --primary: #348E38;
-  --secondary: #525368;
-  --light: #E8F5E9;
-  --dark: #0F4229;
-}
+
 
 .back-to-top {
   position: fixed;
@@ -13237,7 +13235,6 @@ h6,
 }
 
 .hero-wrap.hero-wrap-2 {
-  /* Set a specific height or max-height */
   max-height: 100px; /* Adjust this value as needed */
   overflow: hidden; /* Hide overflowing content if any */
   position: relative; /* Ensure proper positioning */
