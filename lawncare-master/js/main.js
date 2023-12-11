@@ -73,6 +73,24 @@
 	// Scrollax
    $.Scrollax();
 
+	 $(document).ready(function() {
+    $(window).on('scroll', function() {
+        var scrollPosition = $(this).scrollTop();
+
+        // Check each section's position
+        $('section').each(function() {
+            var currentId = $(this).attr('id');
+            var sectionOffset = $(this).offset().top - 100; // Adjust offset if needed
+
+            if (scrollPosition >= sectionOffset) {
+                $('.main-menu li').removeClass('current-list-item');
+                $('.main-menu li').find('a[href="#' + currentId + '"]').parent().addClass('current-list-item');
+            }
+        });
+    });
+});
+
+
 	var carousel = function() {
 		$('.carousel-testimony').owlCarousel({
 			center: true,
@@ -121,6 +139,8 @@
 			items: 1,
 			loop: true,
 			autoplay: true,
+			autoplayTimeout: 2200, 
+			autoplaySpeed: 1400,
 			nav: true,
 			dots: false,
 			navText: ['<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>'],
@@ -145,15 +165,16 @@
 // homepage slides animations
 $(".homepage-slider").on("translate.owl.carousel", function(){
 	$(".hero-text-tablecell .subtitle").removeClass("animated fadeInUp").css({'opacity': '0'});
-	$(".hero-text-tablecell h1").removeClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.3s'});
+	$(".hero-text-tablecell h1").removeClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.2s'});
 	$(".hero-btns").removeClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5s'});
 });
 
 $(".homepage-slider").on("translated.owl.carousel", function(){
 	$(".hero-text-tablecell .subtitle").addClass("animated fadeInUp").css({'opacity': '0'});
-	$(".hero-text-tablecell h1").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.3s'});
-	$(".hero-btns").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5s'});
+	$(".hero-text-tablecell h1").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.2s'});
+	$(".hero-btns").addClass("animated fadeInUp").css({'opacity': '0', 'animation-delay' : '0.5'});
 });
+
 
   // light box
 	$('.image-popup-vertical-fit').magnificPopup({

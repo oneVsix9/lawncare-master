@@ -10638,7 +10638,9 @@ nav.main-menu ul ul.sub-menu li a {
   font-size: 13px;
   font-weight: 600;
 }
-
+nav.main-menu ul li.current-active-list-item > a {
+  color: #6ddc27;
+}
 nav.main-menu ul li.current-list-item > a {
   color: #6ddc27;
 }
@@ -13234,3 +13236,9 @@ h6,
   color: var(--primary);
 }
 
+.hero-wrap.hero-wrap-2 {
+  /* Set a specific height or max-height */
+  max-height: 100px; /* Adjust this value as needed */
+  overflow: hidden; /* Hide overflowing content if any */
+  position: relative; /* Ensure proper positioning */
+}
